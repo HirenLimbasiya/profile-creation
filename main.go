@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"profile-creation/router"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/joho/godotenv"
@@ -15,6 +16,8 @@ func main() {
         fmt.Println("Error loading.env file")
     }
 	port := os.Getenv("PORT");
+
+	router.SetupRoutes(app)
 
 	if port == "" {
         port = "3000"
