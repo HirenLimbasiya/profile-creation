@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 	"os"
-	"profile-creation/api"
 	"profile-creation/middleware"
+	"profile-creation/routes"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/joho/godotenv"
@@ -18,7 +18,7 @@ func main() {
     }
 	port := os.Getenv("PORT");
 	app.Use(middleware.LatencyLogger)
-	api.SetupRoutes(app)
+	routes.SetupRoutes(app)
 
 	if port == "" {
         port = "3000"
